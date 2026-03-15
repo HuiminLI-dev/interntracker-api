@@ -1,12 +1,22 @@
 from datetime import date, datetime
+from enum import Enum
 from typing import Optional
 
 from pydantic import BaseModel, ConfigDict
 
 
+class ApplicationStatus(str, Enum):
+    wishlist = "wishlist"
+    applied = "applied"
+    oa = "oa"
+    interview = "interview"
+    offer = "offer"
+    rejected = "rejected"
+
+
 class ApplicationCreate(BaseModel):
     role_title: str
-    status: str = "wishlist"
+    status: ApplicationStatus = ApplicationStatus.wishlist
     source: Optional[str] = None
     job_url: Optional[str] = None
     applied_date: Optional[date] = None
@@ -18,7 +28,7 @@ class ApplicationCreate(BaseModel):
 
 class ApplicationUpdate(BaseModel):
     role_title: Optional[str] = None
-    status: Optional[str] = None
+    status: Optional[ApplicationStatus] = None
     source: Optional[str] = None
     job_url: Optional[str] = None
     applied_date: Optional[date] = None
@@ -31,7 +41,7 @@ class ApplicationUpdate(BaseModel):
 class ApplicationOut(BaseModel):
     id: int
     role_title: str
-    status: str
+    status: ApplicationStatus
     source: Optional[str] = None
     job_url: Optional[str] = None
     applied_date: Optional[date] = None
