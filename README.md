@@ -52,11 +52,9 @@ requirements.txt
 README.md
 ```
 
-## **Setup**
+## Setup
 
-
-
-```
+```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -64,27 +62,15 @@ cp .env.example .env
 uvicorn app.main:app --reload
 ```
 
-
-
-## **API Docs**
-
-
-
-
+## API Docs
 
 After starting the server, open:
 
-```
+```text
 http://127.0.0.1:8000/docs
 ```
 
-
-
-## **Example Workflow**
-
-
-
-
+## Example Workflow
 
 1. Register a user
 2. Login and authorize in Swagger UI
@@ -92,31 +78,24 @@ http://127.0.0.1:8000/docs
 4. Create an application linked to that company
 5. Add notes to the application
 
+## Testing
 
+Run the basic API tests with:
 
+```bash
+pytest -q
+```
 
-
-
-
-## **Notes**
-
-
-
-
+## Notes
 
 - This project currently uses SQLite for simplicity.
 - Dependency versions are pinned where compatibility matters.
-- Future improvements may include tests, Docker, Postgres, and deployment.
-
-
-
-
-
 
 ## Future Improvements
 
-- Add automated tests
+- Add more API tests
 - Add Docker support
 - Migrate from SQLite to Postgres
-- Add stricter validation for status values
 - Add Alembic migrations
+- Add stricter validation and error handling
+- Deploy the project to a cloud platform
