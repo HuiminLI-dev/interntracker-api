@@ -108,3 +108,15 @@ http://127.0.0.1:8000/docs
 - Dependency versions are pinned where compatibility matters.
 - Future improvements may include tests, Docker, Postgres, and deployment.
 
+
+
+
+
+
+## Future Improvements
+
+- Add automated tests
+- Add Docker support
+- Migrate from SQLite to Postgres
+- Add stricter validation for status values
+- Add Alembic migrations
